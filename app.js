@@ -36,12 +36,21 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
+// Create a counter
+var requestCounter = 0;
+
 bot.dialog('/', function (session) {
     var response = '...';
     // TODO  Check, if give var is a string and is not empty after trim
     var request = session.message.text.toLowerCase();
+    requestCounter++;
+
     var avatar;
     switch (request) {
+        case 'hello':
+            response = "Hello to You";
+            break;
+
         case 'pancakes':
             response = "Do you like pancakces?\n1) Yes\n2) No"
             // TODO Rise here a flag, that next request should be an answer to given question
@@ -50,6 +59,10 @@ bot.dialog('/', function (session) {
         case 'who made you?':
             response = 'This guy..';
             avatar = 'author';
+            break;
+
+        case 'counter':
+            response = 'current count of requests is: ' + requestCounter;
             break;
 
         default:
