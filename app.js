@@ -72,7 +72,8 @@ bot.dialog('/', function (session) {
 
         case 'who made you?':
             response = 'This guy..';
-            avatar = 'author';
+            avatarMime = "image/jpeg";
+            avatarUrl = 'https://avatars2.githubusercontent.com/u/12435750?s=460&v=4';
             break;
 
         case 'counter':
@@ -84,18 +85,9 @@ bot.dialog('/', function (session) {
             break;
     }
     // Choose right image
-    switch (avatar) {
-        case 'author':
-            avatarMime = "image/jpeg";
-            avatarUrl = 'https://avatars2.githubusercontent.com/u/12435750?s=460&v=4';
-            break;
-
-        default:
-            if (avatarUrl === null) {
-                avatarMime = "image/png";
-                avatarUrl = 'https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf';
-            }
-            break;
+    if (avatarUrl == null) {
+        avatarMime = "image/png";
+        avatarUrl = 'https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf';
     }
     // Send right response in text
     session.send(response);
