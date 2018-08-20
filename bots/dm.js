@@ -1,3 +1,5 @@
+'use strict';
+
 export default class DM {
     // TODO Add list of last known requests and response
     

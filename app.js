@@ -60,12 +60,12 @@ bot.dialog('/', function (session) {
             break;
 
         case 'name':
-            if (dm === null || typeof dm === "undefined") 
+            if (dm === null || typeof dm === undefined) {
                 import DM from "./bots/DM";
-                var dm = new DM('Clint');
+                dm = new DM('Clint');
                 if (dm.test() == "works") {
-                    response = "imitialized dm";
-                }
+                    response = "Initialized dm";
+                };
             }
             if (response == '...') {
                 response = dm.ask(request);
