@@ -37,5 +37,16 @@ var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
 bot.dialog('/', function (session) {
-    session.send('You said ' + session.message.text);
+    var response = '...';
+    switch (session.message.text) {
+        case 'pancakes':
+            response = "Do you like pancakces?"
+            break;
+
+        default:
+            response = 'You said' + session.message.text;
+            break;
+    }
+
+    session.send(response);
 });
