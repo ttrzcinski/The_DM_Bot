@@ -37,7 +37,7 @@ var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
 // Create a DM
-var dm;
+//var dm;
 
 // Create a counter
 var requestCounter = 0;
@@ -59,7 +59,7 @@ bot.dialog('/', function (session) {
             response = "Hi to You..";
             break;
 
-        case 'name':
+        /*case 'name':
             if (dm === null || typeof dm === undefined) {
                 import DM from "./bots/DM";
                 dm = new DM('Clint');
@@ -70,7 +70,7 @@ bot.dialog('/', function (session) {
             if (response == '...') {
                 response = dm.ask(request);
             }
-            break;
+            break;*/
 
         /*case 'dm':
             if (dm === null) {
