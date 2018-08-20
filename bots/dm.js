@@ -24,4 +24,5 @@ class DM {
     // TODO Add method to call for debug responsing with whole object as a structure of data
 }
 
-let dm = new DM('The_DM');
+// let dm = new DM('The_DM');
+export default DM;
