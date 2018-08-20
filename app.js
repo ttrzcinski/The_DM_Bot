@@ -38,13 +38,17 @@ bot.set('storage', tableStorage);
 
 bot.dialog('/', function (session) {
     var response = '...';
-    switch (session.message.text) {
+    // TODO  Check, if give var is a string and is not empty after trim
+    var request = session.message.text.toLowerCase();
+
+    switch (request) {
         case 'pancakes':
-            response = "Do you like pancakces?"
+            response = "Do you like pancakces?\n1) Yes\n2)No"
+            // TODO Rise here a flag, that next request should be an answer to given question
             break;
 
         default:
-            response = 'You said' + session.message.text;
+            response = 'You said ' + session.message.text;
             break;
     }
 
