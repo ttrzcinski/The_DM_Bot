@@ -40,24 +40,40 @@ bot.dialog('/', function (session) {
     var response = '...';
     // TODO  Check, if give var is a string and is not empty after trim
     var request = session.message.text.toLowerCase();
-
+    var avatar;
     switch (request) {
         case 'pancakes':
-            response = "Do you like pancakces?\n1) Yes\n2)No"
+            response = "Do you like pancakces?\n1) Yes\n2) No"
             // TODO Rise here a flag, that next request should be an answer to given question
+            break;
+
+        case 'who made you?':
+            response = 'This guy..';
+            avatar = 'author';
             break;
 
         default:
             response = 'You said ' + session.message.text;
             break;
     }
+    // Choose right image
+    var avatar_url = null;
+    switch (avatar) {
+        case 'author':
+            avatar_url = 'https://avatars2.githubusercontent.com/u/12435750?s=460&v=4';
+            break;
 
+        default:
+            avatar_url = 'https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf';
+            break;
+    }
+    // Send right response in text
     session.send(response);
     // Send an image with gold bender
     var msg = new builder.Message(session)
             .attachments([{
                 contentType: "image/png",
-                contentUrl: "https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf                "
+                contentUrl: avatar_url
             }]);
     session.endDialog(msg);
 });
