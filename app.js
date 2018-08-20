@@ -53,4 +53,11 @@ bot.dialog('/', function (session) {
     }
 
     session.send(response);
+    // Send an image with gold bender
+    var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/png",
+                contentUrl: "https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf                "
+            }]);
+    session.endDialog(msg);
 });
