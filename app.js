@@ -36,6 +36,9 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
+// Create a DM
+var dm = new DM('Clint');
+
 // Create a counter
 var requestCounter = 0;
 
@@ -45,10 +48,21 @@ bot.dialog('/', function (session) {
     var request = session.message.text.toLowerCase();
     requestCounter++;
 
-    var avatar;
+    var avatarMime;
+    var avatarUrl;
     switch (request) {
         case 'hello':
             response = "Hello to You";
+            break;
+
+        case 'dm':
+            if (dm === null) {
+                dm = new DM('Sleepy head');
+            }
+            dms_response = dm.ask(request);
+            response = dms_response[0];
+            avatarMime = dms_response[1];
+            avatarUrl = dms.response[2];
             break;
 
         case 'pancakes':
@@ -62,7 +76,7 @@ bot.dialog('/', function (session) {
             break;
 
         case 'counter':
-            response = 'current count of requests is: ' + requestCounter;
+            response = 'Current count of requests is: ' + (requestCounter - 1);
             break;
 
         default:
@@ -70,14 +84,17 @@ bot.dialog('/', function (session) {
             break;
     }
     // Choose right image
-    var avatar_url = null;
     switch (avatar) {
         case 'author':
-            avatar_url = 'https://avatars2.githubusercontent.com/u/12435750?s=460&v=4';
+            avatarMime = "image/jpeg";
+            avatarUrl = 'https://avatars2.githubusercontent.com/u/12435750?s=460&v=4';
             break;
 
         default:
-            avatar_url = 'https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf';
+            if (avatarUrl === null) {
+                avatarMime = "image/png";
+                avatarUrl = 'https://d1u5p3l4wpay3k.cloudfront.net/futuramaworldsoftomorrow_gamepedia_en/d/d9/Goal_Bender_Golden_2.png?version=c796ddd6a419a0f7f1babcd61c99c8bf';
+            }
             break;
     }
     // Send right response in text
@@ -85,8 +102,8 @@ bot.dialog('/', function (session) {
     // Send an image with gold bender
     var msg = new builder.Message(session)
             .attachments([{
-                contentType: "image/png",
-                contentUrl: avatar_url
+                contentType: avatarMime,
+                contentUrl: avatarUrl
             }]);
     session.endDialog(msg);
 });
