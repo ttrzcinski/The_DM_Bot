@@ -59,6 +59,10 @@ bot.dialog('/', function (session) {
             response = "Hi to You..";
             break;
 
+        case 'roll D20':
+            response = Math.floor(Math.random() * 20 + 1);
+            break;
+
         /*case 'name':
             if (dm === null || typeof dm === undefined) {
                 import DM from "./bots/DM";
