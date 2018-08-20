@@ -12,6 +12,12 @@ class DM {
         var imageMimeType = 'image/jpeg';
         var imageUrl = 'https://3.bp.blogspot.com/-1OjnKgn1QDM/V31R4_2zYGI/AAAAAAAAG_I/us2HT_7MzL0INCe5_7pPDJx49tpCHnj9wCLcB/s1600/repeating-svg-vector-with-misc-rectangle-shapes.jpg';
 
+        switch (request) {
+            case "what's your name?":
+                response = this.name;
+                break;
+        }
+
         return [responseInText, imageMimeType, imageUrl];
     }
 
