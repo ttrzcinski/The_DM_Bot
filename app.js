@@ -37,6 +37,7 @@ var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
 // Create a DM
+import { DM } from "./bots/DM";
 var dm = new DM('Clint');
 
 // Create a counter
