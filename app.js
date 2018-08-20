@@ -37,7 +37,7 @@ var bot = new builder.UniversalBot(connector);
 bot.set('storage', tableStorage);
 
 // Create a DM
-var dm = new DM('Clint');
+// var dm = new DM('Clint');
 
 // Create a counter
 var requestCounter = 0;
@@ -55,7 +55,7 @@ bot.dialog('/', function (session) {
             response = "Hello to You";
             break;
 
-        case 'dm':
+        /*case 'dm':
             if (dm === null) {
                 dm = new DM('Sleepy head');
             }
@@ -63,7 +63,7 @@ bot.dialog('/', function (session) {
             response = dms_response[0];
             avatarMime = dms_response[1];
             avatarUrl = dms.response[2];
-            break;
+            break;*/
 
         case 'pancakes':
             response = "Do you like pancakces?\n1) Yes\n2) No"
