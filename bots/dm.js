@@ -1,4 +1,4 @@
-class DM {
+export default class DM {
     // TODO Add list of last known requests and response
     
     constructor(name) {
@@ -21,8 +21,12 @@ class DM {
         return [responseInText, imageMimeType, imageUrl];
     }
 
+    test() {
+        return "works";
+    }
+
     // TODO Add method to call for debug responsing with whole object as a structure of data
 }
 
 // let dm = new DM('The_DM');
-export default DM;
+//export {DM};
