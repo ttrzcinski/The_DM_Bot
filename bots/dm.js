@@ -33,4 +33,4 @@ class DM {
 // let dm = new DM('The_DM');
 //export {DM};
 // TODO maybe this?!
-module.exports = DM;
+export default DM;
