@@ -1,6 +1,6 @@
 'use strict';
 
-export default class DM {
+class DM {
     // TODO Add list of last known requests and response
     
     constructor(name) {
@@ -33,6 +33,4 @@ export default class DM {
 // let dm = new DM('The_DM');
 //export {DM};
 // TODO maybe this?!
-module.exports = {
-    DM: DM,
-}
+module.exports = DM;
