@@ -1,6 +1,6 @@
 'use strict';
 
-class DM {
+export default class DM {
     // TODO Add list of last known requests and response
     
     constructor(name) {
@@ -28,9 +28,9 @@ class DM {
     }
 
     // TODO Add method to call for debug responsing with whole object as a structure of data
-}
+};
 
 // let dm = new DM('The_DM');
 //export {DM};
 // TODO maybe this?!
-export default DM;
+//export default DM;
