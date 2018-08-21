@@ -64,16 +64,16 @@ bot.dialog('/', function (session) {
             break;
 
         case 'name':
-            //if (dm === null || typeof dm === undefined) {
+            if (dm === null || typeof dm === undefined) {
                 import DM from "./bots/DM";
                 dm = new DM("Clint");
-                if (dm.test() == "works") {
+                if (dm.test() == "alive") {
                     response = "Initialized dm";
                 };
-            //}
-            //if (response == '...') {
-            //    response = dm.ask(request);
-            //}
+            }
+            if (response == '...') {
+                response = dm.ask(request);
+            }
             break;
 
         /*case 'dm':

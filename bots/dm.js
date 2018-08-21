@@ -24,7 +24,7 @@ export default class DM {
     }
 
     test() {
-        return "works";
+        return "alive";
     }
 
     // TODO Add method to call for debug responsing with whole object as a structure of data
